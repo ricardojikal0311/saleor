@@ -20,6 +20,7 @@ query ($id: ID!){
         permissions{
             code
         }
+        settings
         options {
           ... on AppExtensionOptionsWidget{
             widgetTarget {
@@ -529,8 +530,12 @@ def test_app_extension_type_options(
 
     assert extension_data["target"] == target.upper()
 
+    assert extension_data["mountName"] == "ORDER_DETAILS_WIDGETS"
+    assert extension_data["targetName"] == app_extension.target.upper()
+
     if target == AppExtensionTarget.NEW_TAB:
         assert extension_data["options"]["newTabTarget"]["method"] == method
+        assert extension_data["settings"]["newTabTarget"]["method"] == method
 
     if target == AppExtensionTarget.WIDGET:
         assert extension_data["options"]["widgetTarget"]["method"] == method

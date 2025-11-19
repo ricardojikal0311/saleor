@@ -123,6 +123,7 @@ class AppManifestExtension(BaseObjectType):
         required=True,
         deprecation_reason="Use `mountName` instead.",
     )
+    # TODO Remove in 3.23
     target = AppExtensionTargetEnum(
         description="Type of way how app extension will be opened.",
         required=True,
@@ -177,6 +178,7 @@ class HttpMethod(BaseEnum):
     GET = AppExtensionHttpMethod.GET
 
 
+# TODO Remove in 3.23
 class NewTabTargetOptions(BaseObjectType):
     method = graphene.Field(
         HttpMethod,
@@ -190,6 +192,7 @@ class NewTabTargetOptions(BaseObjectType):
         doc_category = DOC_CATEGORY_APPS
 
 
+# TODO Remove in 3.23
 class WidgetTargetOptions(BaseObjectType):
     method = graphene.Field(
         HttpMethod,
@@ -203,6 +206,7 @@ class WidgetTargetOptions(BaseObjectType):
         doc_category = DOC_CATEGORY_APPS
 
 
+# TODO Remove in 3.23
 class AppExtensionOptionsWidget(BaseObjectType):
     widget_target = graphene.Field(
         WidgetTargetOptions,
@@ -216,6 +220,7 @@ class AppExtensionOptionsWidget(BaseObjectType):
         doc_category = DOC_CATEGORY_APPS
 
 
+# TODO Remove in 3.23
 class AppExtensionOptionsNewTab(BaseObjectType):
     new_tab_target = graphene.Field(
         NewTabTargetOptions,
@@ -229,6 +234,7 @@ class AppExtensionOptionsNewTab(BaseObjectType):
         doc_category = DOC_CATEGORY_APPS
 
 
+# TODO Remove in 3.23
 class AppExtensionPossibleOptions(graphene.Union):
     class Meta:
         types = (AppExtensionOptionsWidget, AppExtensionOptionsNewTab)
